@@ -25,21 +25,23 @@ CREATE TABLE tasks (
 APIS:
 
 1. For login
-url: /user/login
+url: /user/login, 
 method: post
 
 3. For register
-url: /user/add
+url: /user/add, 
 method: post
 
 4. For add task
-url: /task/addTask
+url: /task/addTask, 
 method: post
 
 5. For delete task
-url: /task/deleteTask
+url: /task/deleteTask, 
 method: delte
 
 6. For get all tasks
-url: /task/getTasks
+url: /task/getTasks, 
 method: post
+
+Added env variable n env-dev file
