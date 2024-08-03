@@ -6,12 +6,11 @@ document.getElementById('submit').addEventListener('click', async () => {
         return;
     }
     const signObj = {
-        username: username,
+        user_name: username,
         password: password
     };
     try {
-        window.location.href = 'cart.html';
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('http://localhost:3000/user/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'
@@ -19,14 +18,15 @@ document.getElementById('submit').addEventListener('click', async () => {
             body: JSON.stringify(signObj)
         });
         const result = await response.json();
-        if (result.message === 'failure') {
+        if (result.status === 'success') {
+            window.location.href = '/frontend/cart.html';
+            localStorage.setItem('jwtToken', result.token)
+            localStorage.setItem('user_id', result?.data?.id);
+        }
+        else {
             alert('Invalid credentials!!!');
             document.getElementById('username').value = '';
             document.getElementById('password').value = '';
-        }
-        else{
-            window.location.href = '/frontend/card.html';
-            localStorage.setItem('jwtToken',result.jwt)
         }
     } catch (error) {
         console.error('Error:', error);

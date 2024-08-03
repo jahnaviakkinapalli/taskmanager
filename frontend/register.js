@@ -17,7 +17,6 @@ function userName() {
     }
 }
 
-
 function passwordd() {
     var pass = form.password.value;
 
@@ -71,8 +70,8 @@ function validate() {
         })
             .then(response => response.json())
             .then(res => {
-                if (res.message === "success") {
-                    window.location.href = 'login.html';
+                if (res.status === "success") {
+                    window.location.href = '/frontend/login.html';
                 } else {
                     alert(res.status);
                 }
