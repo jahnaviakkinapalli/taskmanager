@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="navbar">
+        <div class="container">
+            <h1>Task Manager</h1>
+            <div class="nav-links">
+                <button onclick="showAddTask()">Add Task</button>
+                <button onclick="showTasks()">View Tasks</button>
+                <button onclick="logOut()">Log Out</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="filter-container" id="filter-container" style="display: none;">
+        <input type="text" id="search" placeholder="Search tasks..."> <button type="button" onclick="fetchTasks()">search</button>
+        <label for="filter-status">Status:</label>
+        <select id="filter-status">
+            <option value="">All</option>
+            <option value="Todo">Todo</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Done">Done</option>
+        </select>
+        <label for="filter-priority">Priority:</label>
+        <select id="filter-priority">
+            <option value="">All</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <label for="filter-dueDate">Due Date:</label>
+        <input type="date" id="filter-dueDate">
+        <button type="button" onclick="fetchTasks()">Filter</button>
+    </div>
+
+    <div class="container" id="task-form-container" style="display: none;">
+        <form id="task-form">
+            <input type="hidden" id="task-id">
+            <label for="title">Title:</label>
+            <input type="text" id="title" required>
+            <label for="description">Description:</label>
+            <textarea id="description"></textarea>
+            <label for="status">Status:</label>
+            <select id="status">
+                <option value="Todo">Todo</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Done">Done</option>
+            </select>
+            <label for="priority">Priority:</label>
+            <select id="priority">
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+            </select>
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate">
+            <button type="submit">Save Task</button>
+        </form>
+    </div>
+
+    <div class="container" id="task-list-container" style="display: none;">
+        <h2>Tasks</h2>
+        <table id="task-list">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                    <th>Due Date</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+    <script src="cart.js"></script>
+</body>
+</html>

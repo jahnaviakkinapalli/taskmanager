@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Register</h1>
+        <form id="form">
+            <div class="form-outline">
+                <label class="form-label" for="Name">Username</label>
+                <input type="text" id="Name" name="username" class="form-control" required
+                  oninput="userName()" />
+              </div>
+              <div id="usernamet"></div>
+  
+                  <div class="form-outline">
+                    <label class="form-label" for="pass">Password</label>
+                    <input type="password" id="passw" class="form-control p-2" name="password" required
+                      oninput="passwordd()" />
+  
+                  </div>
+                  <div id="passwordt"></div>
+                  <div class="form-outline form-group">
+                    <label class="form-label" for="copass">Confirm Password</label>
+                    <input type="password" id="copass" class="form-control p-2" name="confirmPassword" required
+                      oninput="confirmPasswordd()" />
+                  </div>
+                  <div id="confirmpasswordt"></div>
+              <div class=" pt-2 mb-2 text-center">
+                <button class="btn  btn-md appointment-btn" type="button" style="color:white;"
+                  onclick="validate()">Register</button>
+              </div>
+              <p class=" pb-lg-2 my-4 text-center">Already have an account? 
+                <a href="login.html">Login</a></p>
+          </form>
+    </div>
+     <script src="register.js"></script>
+</body>
+</html>
