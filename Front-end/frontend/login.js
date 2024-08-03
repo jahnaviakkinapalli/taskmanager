@@ -25,7 +25,8 @@ document.getElementById('submit').addEventListener('click', async () => {
             document.getElementById('password').value = '';
         }
         else{
-            window.location.href = 'car.html';
+            window.location.href = '/frontend/card.html';
+            localStorage.setItem('jwtToken',result.jwt)
         }
     } catch (error) {
         console.error('Error:', error);
