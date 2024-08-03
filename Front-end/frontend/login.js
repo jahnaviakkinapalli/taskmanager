@@ -11,7 +11,7 @@ document.getElementById('submit').addEventListener('click', async () => {
     };
     try {
         window.location.href = 'cart.html';
-        const response = await fetch('http://localhost:3005/login', {
+        const response = await fetch('http://localhost:3000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json; charset=utf-8'

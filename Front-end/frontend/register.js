@@ -1,19 +1,19 @@
 var form = document.forms.form;
 var regpass = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[^\w\s]).{8,}$/
 
-user={username:'',password:'',confirmpassword:''}
-labelMapping={username : "User Name",password : "Password",confirmpassword : "Confirm Password"}
+user = { user_name: '', password: '', confirmpassword: '' }
+labelMapping = { user_name: "User Name", password: "Password", confirmpassword: "Confirm Password" }
 
 function userName() {
-    var username = form.Name.value;
+    var user_name = form.Name.value;
 
-    if (username.length < 6) {
-        document.getElementById("usernamet").innerHTML =
+    if (user_name.length < 6) {
+        document.getElementById("user_namet").innerHTML =
             `<p class="alert alert-danger my-1 p-2" role="alert">username should be minimum 6 characters</p>`
     }
     else {
-        document.getElementById("usernamet").innerHTML = ``
-        user.username = username
+        document.getElementById("user_namet").innerHTML = ``
+        user.user_name = user_name
     }
 }
 
@@ -59,9 +59,9 @@ function validate() {
             x = false
         }
     }
-    
+
     if (x == true) {
-        const apiUrl = 'http://localhost:3005/user/register';
+        const apiUrl = 'http://localhost:3000/user/add';
         fetch(apiUrl, {
             method: 'POST',
             headers: {
@@ -69,17 +69,17 @@ function validate() {
             },
             body: JSON.stringify(user)
         })
-        .then(response => response.json()) 
-        .then(res => {
-            if (res.message === "registration successful") {
-                window.location.href = 'login.html';
-            } else {
-                alert(res.status);
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred during registration.');
-        });
-}
+            .then(response => response.json())
+            .then(res => {
+                if (res.message === "success") {
+                    window.location.href = 'login.html';
+                } else {
+                    alert(res.status);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred during registration.');
+            });
+    }
 }
